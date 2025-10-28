@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="../AppHost/AppHost.csproj" Id="8fafc5ff-2c98-4e50-a170-1cde7682fedb" />
+  <Project Path="../ServiceDefaults/ServiceDefaults.csproj" Id="16b42705-a718-4ea3-a0a4-02af24876c5e" />
   <Project Path="ApiCQRS.csproj" />
 </Solution>

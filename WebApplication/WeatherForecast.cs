@@ -1,4 +1,4 @@
-namespace ApiCQRS
+namespace WebApplication
 {
     public class WeatherForecast
     {
