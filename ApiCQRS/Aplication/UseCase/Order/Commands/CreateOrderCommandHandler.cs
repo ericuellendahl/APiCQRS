@@ -10,9 +10,6 @@ public class CreateOrderCommandHandler(AppDbContext context, IValidator<CreateOr
 
     public async Task<OrderDto> HandleAsync(CreateOrderCommand command)
     {
-
-        //await validator.ValidateAndThrowAsync(command);
-
         var order = new Domian.Models.Order
         {
             FirstName = command.FirstName,
@@ -24,7 +21,7 @@ public class CreateOrderCommandHandler(AppDbContext context, IValidator<CreateOr
 
         await context.Orders.AddAsync(order);
         await context.SaveChangesAsync();
-        
+
         return new OrderDto
         (
             order.Id,
@@ -35,21 +32,4 @@ public class CreateOrderCommandHandler(AppDbContext context, IValidator<CreateOr
             order.TotalCost
         );
     }
-
-
-    //public static async Task<Domian.Models.Order> Handle(CreateOrderCommand command, AppDbContext context)
-    //{
-    //    var order = new Domian.Models.Order
-    //    {
-    //        FirstName = command.FirstName,
-    //        LastName = command.LastName,
-    //        Status = command.Status,
-    //        CreateAt = DateTime.UtcNow,
-    //        TotalCost = command.TotalCost
-    //    };
-    //    await context.Orders.AddAsync(order);
-    //    await context.SaveChangesAsync();
-
-    //    return order;
-    //}
 }
